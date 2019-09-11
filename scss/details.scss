@@ -1,15 +1,18 @@
 .book-prop-value {
 	color: $gray;
+	font-size: 20px;
 	font-weight: normal;
 }
 
 .book-prop {
 	font-weight: bold;
-	margin: 5px 0;
+	font-size: 20px;
+	margin: 18px 0;
 
 	&:first-child {
 		font-weight: bold;
 		font-size: 32px;
+		margin: 24px 0 34px 0;
 
 		.book-prop-value:first-child {
 			font-size: 24px;    
