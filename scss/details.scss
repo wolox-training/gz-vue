@@ -1,5 +1,11 @@
+.book-details {
+  margin: 0 24px;
+  width: 100%;
+}
+
 .book-img {
-	width: 33%;
+  height: 368px;
+  margin: 24px;
 }
 
 .book-prop-value {
@@ -10,15 +16,23 @@
 }
 
 .book-prop {
-	font-size: 20px;
-	font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.container {
+  width: 1000px;
+  height: 416px;
+  box-shadow: 4px 4px 10px 0 rgba(0,0,0,0.5);
 }
 
 .property-container {
   margin: 14px 0;
   
   &:first-child {
+    border-bottom: 4px solid $earls_green;
     margin: 24px 0;
+    padding: 0 0 12px 0;
 
     .book-prop {
       font-size: 32px;
