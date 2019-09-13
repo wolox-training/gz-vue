@@ -3,3 +3,9 @@ body {
   margin: auto;
   width: 1000px;
 }
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
