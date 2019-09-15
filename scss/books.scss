@@ -28,3 +28,16 @@
     }
   }
 }
+
+.nav {
+  align-items: center;
+  border-top: 6px solid $cerulean;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.5);
+  height: 70px;
+  justify-content: space-around;
+  width: 100%;
+
+  .wolox-logo {
+    width: 210px;
+  }
+}
