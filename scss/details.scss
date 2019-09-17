@@ -1,0 +1,28 @@
+.book-prop-value {
+  color: $gray;
+  font-size: 20px;
+  text-indent: 5px;
+}
+
+.book-prop {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.property-container {
+  display: flex;
+  margin: 14px 0;
+  
+  &:first-child {
+    margin: 24px 0;
+
+    .book-prop {
+      font-size: 32px;
+    }
+
+    .book-prop-value {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+}
