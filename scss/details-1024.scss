@@ -1,0 +1,61 @@
+@media only screen and (max-width: 1024px) {
+  .back {
+    left: 0;
+    order: 2;
+    text-align: center;
+    top: 80px;
+
+    &:before {
+      left: 120px;
+    }
+  }
+
+  .container {
+    height: 570px;
+    flex-direction: column;
+    top: 50px;
+    width: 336px;
+
+    .book-img {
+      height: 298px;
+      margin: 25px 60px;
+    }
+
+    .book-prop {
+      font-size: 14px;
+    }
+
+    .book-prop-value {
+      font-size: 14px;
+      text-indent: 5px;
+    }
+
+    .img-container {
+      position: relative;
+
+      &:after {        
+        width: calc(100px * 0.7);
+        right: 50px;
+      }
+    }
+
+    .property-container {
+      margin: 9px 0;
+      width: 85%;
+
+      &:first-child {
+        border-bottom: 4px solid $earls_green;
+
+        .book-prop {
+          font-size: 24px;
+          line-height: 38px;
+        }
+
+        .book-prop-value {
+          font-size: 16px;
+          line-height: 38px;
+        }
+      }
+    }
+  }
+}
