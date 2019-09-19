@@ -17,9 +17,26 @@
   }
 }
 
-.book-details {
-  margin: 0 24px;
-  width: 100%;
+.book-data {
+  border-bottom: 4px solid $earls_green;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  font-family: 'Roboto', sans-serif;
+  margin: auto 0;
+  padding: 12px 0;
+  width: 95%;
+
+  .book-title {
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: bold;
+  }
+
+  .book-genre {
+    color: $gray;
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
 .book-img {
@@ -27,58 +44,206 @@
   margin: 24px;
 }
 
-.book-prop-value {
-  color: $gray;
-  font-size: 20px;
-  font-weight: normal;
-  text-indent: 5px;
-}
 
-.book-prop {
-  font-size: 20px;
-  font-weight: bold;
-}
 
 .container {
   box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+  grid-template: 20% 80% / 1fr 2fr;
   height: 416px;
   margin: auto;
   position: relative;
-  top: 175px;
-  width: 1100px;
-}
+  top: 176px;
+  width: 1000px;
 
-.img-container {
-  position: relative;
+  .img-container {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+  
+    &:after {
+      @include transform(rotate(20deg));
+      background: url('../img/badge.png') no-repeat;
+      background-size: contain;
+      content: "";
+      height: $badge_height;
+      position: absolute;
+      left: 230px;
+      top: 0;
+      width: $badge_width;
+    }
+  }
 
-  &:after {
-    @include transform(rotate(20deg));
-    background: url('../img/badge.png') no-repeat;
-    background-size: contain;
-    content: "";
-    height: $badge_height;
-    position: absolute;
-    right: -20px;
-    top: 0;
-    width: $badge_width;
+  .properties-container {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+
+    .property-container {
+      margin: 36px 0;
+    }
+  
+    .book-prop-value {
+      color: $gray;
+      font-size: 20px;
+      font-weight: normal;
+      text-indent: 5px;
+    }
+    
+    .book-prop {
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
 }
 
-.property-container {
-  margin: 14px 0;
+@media only screen and (max-width: 512px) {
+  .container {
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+    height: 570px;
+    margin: 50px auto;
+    width: 336px;
   
-  &:first-child {
-    border-bottom: 4px solid $earls_green;
-    margin: 24px 0;
-    padding-bottom: 12px;
-
-    .book-prop {
-      font-size: 32px;
-    }
-
-    .book-prop-value {
+    .book-title {
+      font-family: 'Roboto', sans-serif;
       font-size: 24px;
-      line-height: 32px;
+      font-weight: bold;
+      line-height: 38px;
+      margin: 12px auto;
+    }
+  
+    .img-container {
+      margin: auto;
+      position: relative;
+  
+      &::after {
+        @include transform(rotate(20deg));
+        background: url('../img/badge.png') no-repeat;
+        background-size: contain;
+        content: "";
+        height: 85px;
+        right: -25px;
+        position: absolute;
+        top: -15px;
+        width: 65px;
+      }
+  
+      .book-img {
+        height: 300px;
+        margin: 0;
+        width: 215px;
+      }
+    }
+  
+    .genre-container {
+      border-bottom: 4px solid $earls_green;
+      margin: 12px auto;
+      padding: 0 0 12px;
+      text-align: center;
+      width: 90%;
+      
+      .genre {
+        color: $gray;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 19px
+      }
+    }
+  
+    .property-container {
+      margin: 6px 16px;
+  
+      .book-prop {
+        display: inline;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 18px;
+      }
+  
+      .book-prop-value {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .back {
+    left: 50px;
+  }
+
+  .container {
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+    height: 569px;
+    grid-template: 2fr 4fr 1fr / 1fr 1fr 1fr;
+    margin: 100px auto;
+    width: 853px;
+    
+    .book-data {
+      border: 0;
+      font-family: 'Roboto', sans-serif;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      margin: 32px auto;
+      text-align: center;
+      
+      .book-genre {
+        color: $gray;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 28px;
+      }
+  
+      .book-title {
+        display: block;
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 38px;
+      }
+    }
+  
+    .img-container {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      position: relative;
+  
+      &:after {
+        @include transform(rotate(20deg));
+        background: url('../img/badge.png') no-repeat;
+        background-size: contain;
+        content: "";
+        height: $badge_height;
+        position: absolute;
+        right: -20px;
+        top: 0;
+        width: $badge_width;
+      }
+    }
+  
+    .properties-container {
+      grid-column: 2 / 4;
+      grid-row: 2 / 3;
+      position: relative;
+      top: 93px;
+  
+      .property-container {
+        border: 0;
+        font-family: 'Roboto', sans-serif;
+        margin: 36px;
+        padding: 0;
+  
+        .book-prop {
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 24px;
+        }
+  
+        .book-prop-value {
+          font-size: 24px;
+          line-height: 24px;
+        }
+      }
     }
   }
 }
