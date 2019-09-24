@@ -1,7 +1,7 @@
 .back {
   font-family: 'Roboto', sans-serif;
-  left: 200px;
   line-height: 20px;
+  left: 200px;
   font-size: 17px;
   position: relative;
   top: 100px;
@@ -43,8 +43,6 @@
   height: 368px;
   margin: 24px;
 }
-
-
 
 .container {
   box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
@@ -92,87 +90,13 @@
       font-weight: bold;
     }
   }
-}
 
-@media only screen and (max-width: 512px) {
-  .container {
-    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
-    height: 570px;
-    margin: 50px auto;
-    width: 336px;
-  
-    .book-title {
-      font-family: 'Roboto', sans-serif;
-      font-size: 24px;
-      font-weight: bold;
-      line-height: 38px;
-      margin: 12px auto;
-    }
-  
-    .img-container {
-      margin: auto;
-      position: relative;
-  
-      &::after {
-        @include transform(rotate(20deg));
-        background: url('../img/badge.png') no-repeat;
-        background-size: contain;
-        content: "";
-        height: 85px;
-        right: -25px;
-        position: absolute;
-        top: -15px;
-        width: 65px;
-      }
-  
-      .book-img {
-        height: 300px;
-        margin: 0;
-        width: 215px;
-      }
-    }
-  
-    .genre-container {
-      border-bottom: 4px solid $earls_green;
-      margin: 12px auto;
-      padding: 0 0 12px;
-      text-align: center;
-      width: 90%;
-      
-      .genre {
-        color: $gray;
-        font-family: 'Roboto', sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 19px
-      }
-    }
-  
-    .property-container {
-      margin: 6px 16px;
-  
-      .book-prop {
-        display: inline;
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 18px;
-      }
-  
-      .book-prop-value {
-        font-family: 'Roboto', sans-serif;
-        font-size: 14px;
-        line-height: 18px;
-      }
-    }
+  .book-genre-512 {
+    display: none;
   }
 }
 
 @media only screen and (max-width: 1024px) {
-  .back {
-    left: 50px;
-  }
-
   .container {
     box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
     height: 569px;
@@ -242,6 +166,113 @@
         .book-prop-value {
           font-size: 24px;
           line-height: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 512px) {
+  .back {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    margin: auto;
+    left: 0;
+    top: 0;
+  }
+
+  .body {
+    display: grid;
+    grid-template: 100% / 90% 10%;
+  }
+
+  .container {
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+    height: 570px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    grid-template: 1fr 5fr 1fr 4fr / 100%;
+    margin: 50px auto;
+    top: 0;
+    width: 336px;
+
+    .book-data {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      margin: 0;
+
+      .book-title {
+        font-size: 24px;
+      }
+
+      .book-genre {
+        display: none;
+      }
+    }
+
+    .book-genre-512 {
+      border-bottom: 4px solid $earls_green;
+      display: inline-block;
+      grid-row: 3 / 4;
+      grid-column: 1 / 2;
+      margin: 0 auto;
+      text-align: center;
+      width: 90%;
+
+      .genre-512 {
+        color: $gray;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    .img-container {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      margin: 0 auto;
+      position: relative;
+
+      &::after {
+        @include transform(rotate(20deg));
+        background: url('../img/badge.png') no-repeat;
+        background-size: contain;
+        content: "";
+        height: 85px;
+        left: 180px;
+        position: absolute;
+        top: -25px;
+        width: 65px;
+      }
+
+      .book-img {
+        height: 300px;
+        margin: 0;
+        width: 215px;
+      }
+    }
+
+    .properties-container {
+      grid-row: 4 / 5;
+      grid-column: 1 / 2;
+      margin: 9px auto;
+      top: 0;
+      width: 90%;
+      
+      .property-container {
+        margin: 18px auto;
+
+        .book-prop {
+          display: inline;
+          font-family: 'Roboto', sans-serif;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 18px;
+        }
+  
+        .book-prop-value {
+          font-family: 'Roboto', sans-serif;
+          font-size: 14px;
+          line-height: 18px;
         }
       }
     }
