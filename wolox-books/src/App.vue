@@ -2,6 +2,6 @@
   #app
     router-view
 </template>
-<style lang="scss" scoped>
-@import 'scss/application';
+<style lang="scss">
+@import './scss/application';
 </style>

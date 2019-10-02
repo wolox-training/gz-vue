@@ -1,5 +1,5 @@
 <template lang='pug'>
-  .container.column
+  .column.container
     img.wolox-img(src='@/assets/LogoWolox.png')
     span.books-title
       | BOOKS
@@ -29,9 +29,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-@import '../scss/common/display';
-@import '~wolox-equalizer/equalizer';
-@import '../scss/variables/_colors';
+@import '../scss/variables/colors';
 
 .container {
   background: $wild_sand;
