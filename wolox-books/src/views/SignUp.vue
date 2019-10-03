@@ -5,17 +5,17 @@
       | BOOKS
     label.label
       | First name
-    input.input(type='text')
+    input.input(type='text' v-model='firstName')
     label.label
       | Last name
-    input.input(type='text')
+    input.input(type='text' v-model='lastName')
     label.label
       | Email
-    input.input(type='text')
+    input.input(type='text' v-model='email')
     label.label
       | Password
-    input.input(type='password')
-    a.input.signup-button(href='javascript:void(0)')
+    input.input(type='password' v-model='password')
+    a.input.signup-button(href='javascript:void(0)' v-on:click='submitForm')
       | Sign Up
     .login-container
       a.input.login-button(href='javascript:void(0)')
@@ -24,7 +24,28 @@
 
 <script>
 export default {
-  name: 'SignUp'
+  name: 'SignUp',
+  data () {
+    return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      locale: 'en'
+    }
+  },
+  methods: {
+    submitForm () {
+      let user = {
+        'email': this.email,
+        'password': this.password,
+        'first_name': this.firstName,
+        'last_name': this.lastName,
+        'locale': this.locale
+      }
+      console.log(user)
+    }
+  }
 }
 </script>
 
