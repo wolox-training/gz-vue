@@ -1,5 +1,5 @@
 <template lang='pug'>
-  .column.container
+  form.column.container
     img.wolox-img(src='@/assets/LogoWolox.png')
     span.books-title
       | BOOKS
@@ -11,18 +11,25 @@
     input.input(type='text' v-model='lastName')
     label.label
       | Email
-    input.input(type='text' v-model='email')
+    input.input(type='text' v-model='$v.email.$model')
+    .error(v-if="$v.email.$error")
+      | Email is required
     label.label
       | Password
-    input.input(type='password' v-model='password')
-    a.input.signup-button(href='javascript:void(0)' v-on:click='submitForm')
-      | Sign Up
+    input.input(type='password' v-model='$v.password.$model')
+    .error(v-if="$v.password.$error")
+      | Password is required
+    input.input.signup-button(v-on:click='submitForm' type='submit' value='Sign Up')
     .login-container
       a.input.login-button(href='javascript:void(0)')
         | Login
 </template>
 
+<script src="vuelidate/dist/vuelidate.min.js"></script>
 <script>
+import { required, email, helpers } from 'vuelidate/lib/validators'
+let passwordValidation = helpers.regex('password', /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])/)
+
 export default {
   name: 'SignUp',
   data () {
@@ -45,6 +52,16 @@ export default {
       }
       console.log(user)
     }
+  },
+  validations: {
+    email: {
+      required,
+      email
+    },
+    password: {
+      required,
+      passwordValidation
+    }
   }
 }
 </script>
@@ -62,16 +79,23 @@ export default {
     margin: auto;
   }
 
+  .error {
+    color: $froly;
+    font-size: 11px;
+    margin: auto;
+    width: 250px;
+  }
+
   .input {
     border-radius: 5px;
     height: 25px;
-    margin: 2px auto 12px;
+    margin: 2px auto 2px;
     width: 250px;
   }
 
   .label {
-    margin: 4px 0;
-    text-indent: 30px;
+    margin: 4px auto;
+    width: 250px;
   }
 
   .login-container {
