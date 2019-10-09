@@ -1,3 +1,7 @@
+.book-img {
+  width: 33%;
+}
+
 .book-prop-value {
   color: $gray;
   font-size: 20px;
@@ -10,7 +14,6 @@
 }
 
 .property-container {
-  display: flex;
   margin: 14px 0;
   
   &:first-child {
