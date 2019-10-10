@@ -1,9 +1,12 @@
-.row {
-  display: flex;
-  flex-direction: row;
-}
+$badge_width: 100px;
+$badge_height: 120px;
 
 .column {
   display: flex;
   flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
 }

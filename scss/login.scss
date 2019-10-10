@@ -1,0 +1,43 @@
+.login-box {
+  background: $wild_sand;
+  border-top: 8px solid $cerulean;
+  height: 400px;
+  margin: 50px auto;
+  width: 300px;
+
+  .input {
+    border-radius: 5px;
+    height: 32px;
+    line-height: 32px;
+    margin: auto;
+    width: 250px;
+  }
+
+  .label {
+    margin: 0 25px;
+  }
+
+  .login-button {
+    background: $earls_green;
+    color: $white;
+    text-align: center;
+  }
+
+  .signup-container {
+    border-top: 2px solid $silver_chalice;
+    margin: 0 auto 24px;
+    padding-top: 16px;
+
+    .signup-button {
+      background: $wild_sand;
+      border: 2px solid $earls_green;
+      color: $earls_green;
+      line-height: 28px;
+    }
+  }
+
+  .wolox-logo {
+    margin: 20px auto;
+    width: 215px;
+  }
+}
