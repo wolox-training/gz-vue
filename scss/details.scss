@@ -26,6 +26,22 @@
   width: 100%;
 }
 
+.img-container {
+  position: relative;
+
+  &:after {
+    @include transform(rotate(20deg));
+    background: url('../img/badge.png') no-repeat;
+    background-size: contain;
+    content: "";
+    height: 120px;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    width: 100px;
+  }
+}
+
 .property-container {
   margin: 14px 0;
   
