@@ -1,0 +1,30 @@
+.books-list {
+  flex-wrap: wrap;
+  margin: auto;
+  width: 1100px;
+
+  .book {
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+    height: 300px;
+    margin: 36px;
+    padding: 28px;
+    width: 200px;
+
+    .author-name {
+      color: $gray;
+      font-size: 14px;
+    }
+
+    .book-img {
+      height: 200px;
+      margin: 0;
+      width: 142px;
+    }
+
+    .book-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 8px 0 6px;
+    }
+  }
+}
