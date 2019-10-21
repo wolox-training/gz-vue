@@ -21,7 +21,7 @@
       | Password is required
     input.input.signup-button(v-on:click='submitForm' type='submit' value='Sign Up')
     .login-container
-      a.input.login-button(href='javascript:void(0)')
+      router-link.input.login-button(to='login')
         | Login
 </template>
 
