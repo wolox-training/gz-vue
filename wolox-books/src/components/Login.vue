@@ -20,6 +20,7 @@
         | Sign Up
 </template>
 
+<script src="vuelidate/dist/vuelidate.min.js"></script>
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 import { signIn } from '../services/userService'
