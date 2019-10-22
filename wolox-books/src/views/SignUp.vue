@@ -27,8 +27,9 @@
 </template>
 
 <script>
-import { required, email } from 'vuelidate/lib/validators'
-import { passwordValidation } from '../utils/validators'
+import { required, email, helpers } from 'vuelidate/lib/validators'
+import { signUp } from '../services/userService'
+let passwordValidation = helpers.regex('password', /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])/)
 
 export default {
   name: 'SignUp',
@@ -38,19 +39,27 @@ export default {
       lastName: '',
       email: '',
       password: '',
-      locale: 'en'
+      locale: 'en',
+      errors: false
     }
   },
   methods: {
-    submit () {
-      let user = {
-        'email': this.email,
-        'password': this.password,
-        'first_name': this.firstName,
-        'last_name': this.lastName,
-        'locale': this.locale
+    async submit () {
+      if (this.$v.$invalid) {
+        this.errors = true
       }
-      console.log(user)
+      else {
+        let user = {
+          'email': this.email,
+          'password': this.password,
+          'password_confirmation': this.password,
+          'first_name': this.firstName,
+          'last_name': this.lastName,
+          'locale': this.locale
+        }
+        let response = await signUp(user)
+        console.log(response.data)
+      }
     }
   },
   validations: {
@@ -61,6 +70,20 @@ export default {
     password: {
       required,
       passwordValidation
+    }
+  },
+  computed: {
+    invalidEmail() {
+      return this.errors && !this.$v.email.email
+    },
+    emailRequired() {
+      return this.errors && !this.$v.email.required
+    },
+    passwordRequired() {
+      return this.errors && !this.$v.password.required
+    },
+    invalidPassword() {
+      return this.errors && !this.$v.password.passwordValidation
     }
   }
 }

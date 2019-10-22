@@ -22,7 +22,7 @@
 <script src="vuelidate/dist/vuelidate.min.js"></script>
 <script>
 import { required, email, helpers } from 'vuelidate/lib/validators'
-import { signIn } from '../services/api'
+import { signIn } from '../services/userService'
 
 export default {
   name: 'Login',
@@ -33,9 +33,13 @@ export default {
     }
   },
   methods: {
-    submit () {
-      let response = signIn(this.email, this.password);
-      console.log(response)
+    async submit () {
+      let session = {
+        'email': this.email,
+        'password': this.password
+      }
+      let response = await signIn(session);
+      console.log(response.data)
     }
   },
   validations: {
