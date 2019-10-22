@@ -6,12 +6,12 @@
     label.label(for='email')
       | Email
     input#email.input(type='email' v-model='$v.email.$model')
-    .error(v-show='$v.email.$error')
+    span.error(v-show='$v.email.$error')
       | Email is required
     label.label(for='password')
       | Password
     input#password.input(type='password' v-model='$v.password.$model')
-    .error(v-show='$v.password.$error')
+    span.error(v-show='$v.password.$error')
       | Password is required
     button.input.signup-button(type='submit')
       | Log In
