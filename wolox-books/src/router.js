@@ -8,7 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: { name: routes.login }
+      name: routes.home,
+      component: () => import(/* webpackChunkName: "navbar" */ './components/NavBar.vue')
     },
     {
       path: '/login',
