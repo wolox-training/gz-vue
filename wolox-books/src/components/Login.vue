@@ -1,25 +1,25 @@
 <template lang='pug'>
-  form.column.container
+  form.column.container(@submit.prevent='submit')
     img.wolox-img(src='@/assets/LogoWolox.png' @submit.prevent='onSubmit')
     span.books-title
       | BOOKS
-    label.label
+    label.label(for='email')
       | Email
-    input.input(type='text' v-model='$v.email.$model')
-    .error(v-if="$v.email.$error")
+    input.input#email(type='text' v-model='$v.email.$model')
+    .error(v-show='$v.email.$error')
       | Email is required
-    label.label
+    label.label(for='password')
       | Password
-    input.input(type='password' v-model='$v.password.$model')
-    .error(v-if="$v.password.$error")
+    input.input#password(type='password' v-model='$v.password.$model')
+    .error(v-show='$v.password.$error')
       | Password is required
-    input.input.signup-button(v-on:click='submit' type='submit' value='Log In')
+    button.input.signup-button(type='submit')
+      | Log In
     .login-container
       router-link.input.login-button(to='signup')
         | Sign Up
 </template>
 
-<script src="vuelidate/dist/vuelidate.min.js"></script>
 <script>
 import { required, email, helpers } from 'vuelidate/lib/validators'
 import { signIn } from '../services/userService'
@@ -76,7 +76,7 @@ export default {
   .input {
     border-radius: 5px;
     height: 25px;
-    margin: 2px auto 2px;
+    margin: 2px auto;
     width: 250px;
   }
 
