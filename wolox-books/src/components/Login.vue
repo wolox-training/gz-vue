@@ -1,6 +1,6 @@
 <template lang='pug'>
   form.column.container(@submit.prevent='submit')
-    img.wolox-img(src='@/assets/LogoWolox.png' @submit.prevent='onSubmit')
+    img.wolox-img(src='@/assets/LogoWolox.png')
     span.books-title
       | BOOKS
     label.label(for='email')
