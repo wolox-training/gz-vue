@@ -39,7 +39,6 @@ export default {
         'password': this.password
       }
       let response = await signIn(session);
-      debugger
       if (response.ok) {
         setSessionData(response.data)
         this.$router.push('/')
