@@ -38,7 +38,7 @@ export default {
         email: this.email,
         password: this.password
       }
-      const response = await signIn(session);
+      const response = await signIn(session)
       if (response.ok) {
         setSessionData(response.data)
         this.$router.push('/')
