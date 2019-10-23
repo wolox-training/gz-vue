@@ -1,34 +1,34 @@
 <template lang='pug'>
-  form.column.container
+  form.column.container(@submit.prevent='submit')
     img.wolox-img(src='@/assets/LogoWolox.png')
     span.books-title
       | BOOKS
-    label.label
+    label.label(for='firstName')
       | First name
-    input.input(type='text' v-model='firstName')
-    label.label
+    input.input#firstName(type='text' v-model='firstName')
+    label.label(for='lastName')
       | Last name
-    input.input(type='text' v-model='lastName')
-    label.label
+    input.input#lastName(type='text' v-model='lastName')
+    label.label(for='email')
       | Email
-    input.input(type='text' v-model='$v.email.$model')
-    .error(v-if="$v.email.$error")
+    input.input#email(type='text' v-model='$v.email.$model')
+    span.error(v-if='$v.email.$error')
       | Email is required
-    label.label
+    label.label(for='password')
       | Password
-    input.input(type='password' v-model='$v.password.$model')
-    .error(v-if="$v.password.$error")
+    input.input#password(type='password' v-model='$v.password.$model')
+    span.error(v-if='$v.password.$error')
       | Password is required
-    input.input.signup-button(v-on:click='submitForm' type='submit' value='Sign Up')
+    button.input.signup-button(type='submit')
+      | Sign Up
     .login-container
-      a.input.login-button(href='javascript:void(0)')
+      router-link.input.login-button(to='login')
         | Login
 </template>
 
-<script src="vuelidate/dist/vuelidate.min.js"></script>
 <script>
-import { required, email, helpers } from 'vuelidate/lib/validators'
-let passwordValidation = helpers.regex('password', /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z])/)
+import { required, email } from 'vuelidate/lib/validators'
+import { passwordValidation } from '../utils/validators'
 
 export default {
   name: 'SignUp',
@@ -42,7 +42,7 @@ export default {
     }
   },
   methods: {
-    submitForm () {
+    submit () {
       let user = {
         'email': this.email,
         'password': this.password,
@@ -89,7 +89,7 @@ export default {
   .input {
     border-radius: 5px;
     height: 25px;
-    margin: 2px auto 2px;
+    margin: 2px auto;
     width: 250px;
   }
 
