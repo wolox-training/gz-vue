@@ -51,8 +51,7 @@ export default {
     async submit () {
       if (this.$v.$invalid) {
         this.errors = true
-      }
-      else {
+      } else {
         let user = {
           'email': this.email,
           'password': this.password,
@@ -77,16 +76,16 @@ export default {
     }
   },
   computed: {
-    invalidEmail() {
+    invalidEmail () {
       return this.errors && !this.$v.email.email
     },
-    emailRequired() {
+    emailRequired () {
       return this.errors && !this.$v.email.required
     },
-    passwordRequired() {
+    passwordRequired () {
       return this.errors && !this.$v.password.required
     },
-    invalidPassword() {
+    invalidPassword () {
       return this.errors && !this.$v.password.passwordValidation
     }
   }

@@ -12,7 +12,6 @@
 import { removeSession } from '../services/userService'
 
 export default {
-  name: 'NavBar',
   methods: {
     logout () {
       removeSession()

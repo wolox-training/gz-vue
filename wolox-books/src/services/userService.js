@@ -1,4 +1,4 @@
-import { api } from '../config/api'
+import { api, defaultHeaders } from '../config/api'
 import LocalStorageService from './localStorage'
 
 export const signIn = session => api.post('users/sessions', { session })
@@ -10,8 +10,10 @@ export const setSessionData = data => {
     'Authorization': data.access_token
   }
   LocalStorageService.setSessionData(sessionData)
+  api.setHeader('Authorization', data.access_token)
 }
 
 export const removeSession = () => {
   LocalStorageService.removeSessionData()
+  api.setHeaders(defaultHeaders)
 }
