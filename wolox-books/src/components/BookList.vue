@@ -45,7 +45,7 @@ export default {
 
     .book-author {
       color: #000;
-      padding: 5px;
+      padding: 5px 0 10px 25px;
     }
 
     .book-img {
@@ -56,7 +56,7 @@ export default {
     .book-title {
       color: #000;
       font-weight: bold;
-      padding: 5px;
+      padding: 5px 0 0 25px;
     }
   }
 }
