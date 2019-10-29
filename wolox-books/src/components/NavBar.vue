@@ -4,7 +4,7 @@
       img.wolox-img(src='@/assets/LogoWolox.png')
       span
         | BOOKS
-    a.logout(href='javascript:void(0)' @click='logout')
+    a.logout(@click='logout')
       | Logout
 </template>
 
