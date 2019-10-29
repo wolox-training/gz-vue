@@ -23,6 +23,7 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 import { signIn, setSessionData } from '../services/userService'
+import { routes } from '../router'
 
 export default {
   name: 'Login',
@@ -41,7 +42,7 @@ export default {
       const response = await signIn(session)
       if (response.ok) {
         setSessionData(response.data)
-        this.$router.push('/')
+        this.$router.push({ name: routes.home })
       }
     }
   },

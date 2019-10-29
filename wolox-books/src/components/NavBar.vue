@@ -1,29 +1,31 @@
-<template lang='pug'>
+<template lang="pug">
   .header.row
     .img-box.column
-      img.wolox-img(src='@/assets/LogoWolox.png')
-      span
+      img.wolox-img(src='@/assets/LogoWolox.png' alt='Logo Wolox')
+      span.title
         | BOOKS
-    a.logout(href='javascript:void(0)' @click='logout')
+    button.logout(type='button' @click='logout')
       | Logout
 </template>
 
 <script>
 import { removeSession } from '../services/userService'
+import { routes } from '../router'
 
 export default {
   name: 'NavBar',
   methods: {
     logout () {
       removeSession()
-      this.$router.push('/login')
+      this.$router.push({ name: routes.login })
     }
   }
 }
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @import '../scss/variables/colors';
+
 .header {
   align-items: center;
   border-top: 4px solid $cerulean;
