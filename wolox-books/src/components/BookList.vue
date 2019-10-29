@@ -9,23 +9,25 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import NavBar from '@/components/NavBar'
-import { getBooks } from '@/services/booksService.js'
 
 export default {
-  data () {
-    return {
-      books: []
-    }
-  },
   components: {
     NavBar
   },
+  methods: {
+    ...mapActions([
+      'getBooks'
+    ])
+  },
   async mounted () {
-    const response = await getBooks()
-    if (response.ok) {
-      this.books = response.data
-    }
+    this.getBooks()
+  },
+  computed: {
+    ...mapGetters([
+      'books'
+    ])
   }
 }
 </script>
