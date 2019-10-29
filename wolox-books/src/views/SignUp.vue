@@ -22,7 +22,7 @@
     button.input.signup-button(type='submit')
       | Sign Up
     .login-container
-      router-link.input.login-button(to='login')
+      router-link.input.login-button(:to={ name: 'login' })
         | Login
 </template>
 

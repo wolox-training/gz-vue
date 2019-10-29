@@ -16,7 +16,7 @@
     button.input.signup-button(type='submit')
       | Log In
     .login-container
-      router-link.input.login-button(:to='{ name: routes.signup }')
+      router-link.input.login-button(:to={ name: 'signup' })
         | Sign Up
 </template>
 
