@@ -1,22 +1,22 @@
 <template lang='pug'>
   form.column.container(@submit.prevent='submit')
-    img.wolox-img(src='@/assets/LogoWolox.png')
+    img.wolox-img(src='@/assets/LogoWolox.png' alt='Wolox logo')
     span.books-title
       | BOOKS
     label.label(for='firstName')
       | First name
-    input.input#firstName(type='text' v-model='firstName')
+    input#firstName.input(type='text' v-model='firstName')
     label.label(for='lastName')
       | Last name
-    input.input#lastName(type='text' v-model='lastName')
+    input#lastName.input(type='text' v-model='lastName')
     label.label(for='email')
       | Email
-    input.input#email(type='text' v-model='$v.email.$model')
+    input#email.input(type='email' v-model='$v.email.$model')
     span.error(v-if='$v.email.$error')
       | Email is required
     label.label(for='password')
       | Password
-    input.input#password(type='password' v-model='$v.password.$model')
+    input#password.input(type='password' v-model='$v.password.$model')
     span.error(v-if='$v.password.$error')
       | Password is required
     button.input.signup-button(type='submit')
