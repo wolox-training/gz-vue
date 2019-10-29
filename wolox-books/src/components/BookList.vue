@@ -34,16 +34,28 @@ export default {
 .books-container {
   flex-wrap: wrap;
   margin: 40px auto;
+  justify-content: center;
   width: 80%;
 
   .book {
     box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
     margin: 10px;
-    width: 250px;
+    width: 240px;
+
+    .book-author {
+      color: #000;
+      padding: 5px;
+    }
 
     .book-img {
       margin: auto;
-      width: 200px;
+      width: 190px;
+    }
+
+    .book-title {
+      color: #000;
+      font-weight: bold;
+      padding: 5px;
     }
   }
 }
