@@ -1,67 +1,48 @@
 <template lang='pug'>
   form.column.container(@submit.prevent='submit')
-    img.wolox-img(src='@/assets/LogoWolox.png' alt='Wolox logo')
+    img.wolox-img(src='@/assets/LogoWolox.png')
     span.books-title
       | BOOKS
-    label.label(for='firstName')
-      | First name
-    input#firstName.input(type='text' v-model='firstName')
-    label.label(for='lastName')
-      | Last name
-    input#lastName.input(type='text' v-model='lastName')
     label.label(for='email')
       | Email
     input#email.input(type='email' v-model='$v.email.$model')
-    span.error(v-if='$v.email.$error')
+    span.error(v-show='$v.email.$error')
       | Email is required
-    span.error(v-show='invalidEmail')
-      | Email is invalid
     label.label(for='password')
       | Password
     input#password.input(type='password' v-model='$v.password.$model')
-    span.error(v-if='$v.password.$error')
+    span.error(v-show='$v.password.$error')
       | Password is required
-    span.error(v-show='invalidPassword')
-      | Password is invalid
     button.input.signup-button(type='submit')
-      | Sign Up
+      | Log In
     .login-container
-      router-link.input.login-button(:to={ name: 'login' })
-        | Login
+      router-link.input.login-button(:to={ name: 'signup' })
+        | Sign Up
 </template>
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import { passwordValidation } from '../utils/validators'
-import { signUp } from '../services/userService'
+import { signIn, setSessionData } from '../services/userService'
+import { routes } from '../router'
 
 export default {
-  name: 'SignUp',
+  name: 'Login',
   data () {
     return {
-      firstName: '',
-      lastName: '',
       email: '',
-      password: '',
-      locale: 'en',
-      errors: false
+      password: ''
     }
   },
   methods: {
     async submit () {
-      if (this.$v.$invalid) {
-        this.errors = true
-      } else {
-        const user = {
-          email: this.email,
-          password: this.password,
-          password_confirmation: this.password,
-          first_name: this.firstName,
-          last_name: this.lastName,
-          locale: this.locale
-        }
-        const response = await signUp(user)
-        console.log(response.data)
+      const session = {
+        email: this.email,
+        password: this.password
+      }
+      const response = await signIn(session)
+      if (response.ok) {
+        setSessionData(response.data)
+        this.$router.push({ name: routes.home })
       }
     }
   },
@@ -71,22 +52,7 @@ export default {
       email
     },
     password: {
-      required,
-      passwordValidation
-    }
-  },
-  computed: {
-    invalidEmail () {
-      return this.errors && !this.$v.email.email
-    },
-    emailRequired () {
-      return this.errors && !this.$v.email.required
-    },
-    passwordRequired () {
-      return this.errors && !this.$v.password.required
-    },
-    invalidPassword () {
-      return this.errors && !this.$v.password.passwordValidation
+      required
     }
   }
 }
@@ -99,7 +65,8 @@ export default {
   background: $wild_sand;
   border-top: 6px solid $cerulean;
   margin: auto;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
 
   .books-title {
     margin: auto;
@@ -134,7 +101,7 @@ export default {
       border: 2px solid $earls_green;
       color: $earls_green;
       height: 35px;
-      line-height: 35px;
+      line-height: 45px;
       margin: 0;
       text-align: center;
     }
@@ -144,7 +111,7 @@ export default {
     background: $earls_green;
     color: $white;
     height: 35px;
-    line-height: 35px;
+    line-height: 45px;
     margin: 16px auto;
     text-align: center;
   }
