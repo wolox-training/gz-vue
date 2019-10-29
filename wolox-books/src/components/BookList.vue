@@ -1,7 +1,7 @@
 <template lang='pug'>
   .books-container.row
     .book.column(v-for='book in books' :key='book.id')
-      img.book-img(:src='book.image_url')
+      img.book-img(:src='book.image_url' :alt='book.title')
       h2.book-title
         | {{ book.title }}
       h3.book-author
@@ -31,6 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .books-container {
   flex-wrap: wrap;
   margin: 40px auto;

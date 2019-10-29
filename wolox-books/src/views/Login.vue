@@ -6,12 +6,12 @@
     label.label(for='email')
       | Email
     input.input#email(type='text' v-model='$v.email.$model')
-    .error(v-show='$v.email.$error')
+    span.error(v-show='$v.email.$error')
       | Email is required
     label.label(for='password')
       | Password
     input.input#password(type='password' v-model='$v.password.$model')
-    .error(v-show='$v.password.$error')
+    span.error(v-show='$v.password.$error')
       | Password is required
     button.input.signup-button(type='submit')
       | Log In
@@ -35,11 +35,11 @@ export default {
   },
   methods: {
     async submit () {
-      let session = {
+      const session = {
         'email': this.email,
         'password': this.password
       }
-      let response = await signIn(session)
+      const response = await signIn(session)
       if (response.ok) {
         setSessionData(response.data)
         this.$router.push({ name: routes.home })
