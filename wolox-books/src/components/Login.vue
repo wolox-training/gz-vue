@@ -5,23 +5,23 @@
       | BOOKS
     label.label(for='email')
       | Email
-    input.input#email(type='text' v-model='$v.email.$model')
+    input#email.input(type='email' v-model='$v.email.$model')
     .error(v-show='$v.email.$error')
       | Email is required
     label.label(for='password')
       | Password
-    input.input#password(type='password' v-model='$v.password.$model')
+    input#password.input(type='password' v-model='$v.password.$model')
     .error(v-show='$v.password.$error')
       | Password is required
     button.input.signup-button(type='submit')
       | Log In
     .login-container
-      router-link.input.login-button(to='signup')
+      router-link.input.login-button(:to='{ name: routes.signup }')
         | Sign Up
 </template>
 
 <script>
-import { required, email, helpers } from 'vuelidate/lib/validators'
+import { required, email } from 'vuelidate/lib/validators'
 import { signIn } from '../services/userService'
 
 export default {
@@ -34,11 +34,11 @@ export default {
   },
   methods: {
     async submit () {
-      let session = {
-        'email': this.email,
-        'password': this.password
+      const session = {
+        email: this.email,
+        password: this.password
       }
-      let response = await signIn(session);
+      const response = await signIn(session)
       console.log(response.data)
     }
   },
@@ -48,11 +48,12 @@ export default {
       email
     },
     password: {
-      required,
+      required
     }
   }
 }
 </script>
+
 <style scoped lang='scss'>
 @import '../scss/variables/colors';
 
@@ -60,7 +61,8 @@ export default {
   background: $wild_sand;
   border-top: 6px solid $cerulean;
   margin: auto;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
 
   .books-title {
     margin: auto;
@@ -95,7 +97,7 @@ export default {
       border: 2px solid $earls_green;
       color: $earls_green;
       height: 35px;
-      line-height: 35px;
+      line-height: 45px;
       margin: 0;
       text-align: center;
     }
@@ -105,7 +107,7 @@ export default {
     background: $earls_green;
     color: $white;
     height: 35px;
-    line-height: 35px;
+    line-height: 45px;
     margin: 16px auto;
     text-align: center;
   }

@@ -47,17 +47,16 @@ export default {
     async submit () {
       if (this.$v.$invalid) {
         this.errors = true
-      }
-      else {
-        let user = {
-          'email': this.email,
-          'password': this.password,
-          'password_confirmation': this.password,
-          'first_name': this.firstName,
-          'last_name': this.lastName,
-          'locale': this.locale
+      } else {
+        const user = {
+          email: this.email,
+          password: this.password,
+          password_confirmation: this.password,
+          first_name: this.firstName,
+          last_name: this.lastName,
+          locale: this.locale
         }
-        let response = await signUp(user)
+        const response = await signUp(user)
         console.log(response.data)
       }
     }
