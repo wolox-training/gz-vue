@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-export const routes = { signup: 'signup', home: 'home', login: 'login' }
+export const routes = { signup: 'signup', home: 'home', login: 'login', detail: 'detail' }
 
 export default new Router({
   routes: [
@@ -24,6 +24,11 @@ export default new Router({
     {
       path: '/',
       redirect: { name: routes.login }
+    },
+    {
+      path: '/books/:id',
+      name: routes.detail,
+      component: () => import(/* webpackChunkName: "BokoDetail" */ './views/BookDetail.vue')
     }
   ]
 })

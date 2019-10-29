@@ -1,6 +1,6 @@
 <template lang='pug'>
   .books-container.row
-    .book.column(v-for='book in books' :key='book.id')
+    router-link.book.column(v-for='book in books' :key='book.id' :to='`/books/${book.id}`')
       img.book-img(:src='book.image_url' :alt='book.title')
       h2.book-title
         | {{ book.title }}
@@ -13,6 +13,11 @@ import { mapActions, mapGetters } from 'vuex'
 import NavBar from '@/components/NavBar'
 
 export default {
+  data () {
+    return {
+      book: ''
+    }
+  },
   components: {
     NavBar
   },
