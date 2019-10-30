@@ -11,17 +11,17 @@
             | ({{ book.genre }})
         .book-property
           h2.property-name
-            | Book author:
+            | {{ $t('bookDetail.bookAuthor') }}:
           h3.property-value
             | {{ book.author }}
         .book-property
           h2.property-name
-            | Publisher:
+            | {{ $t('bookDetail.publisher') }}:
           h3.property-value
             | {{ book.publisher }}
         .book-property
           h2.property-name
-            | Year of publication:
+            | {{ $t('bookDetail.year') }}:
           h3.property-value
             | {{ book.year }}
 

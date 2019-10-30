@@ -2,22 +2,22 @@
   form.column.container(@submit.prevent='submit')
     img.wolox-img(src='@/assets/LogoWolox.png')
     span.books-title
-      | BOOKS
+      | {{ $t('login.books') }}
     label.label(for='email')
-      | Email
+      | {{ $t('login.email') }}
     input.input#email(type='text' v-model='$v.email.$model')
     span.error(v-show='$v.email.$error')
-      | Email is required
+      | {{ $t('login.emailRequired') }}
     label.label(for='password')
-      | Password
+      | {{ $t('login.password') }}
     input.input#password(type='password' v-model='$v.password.$model')
     span.error(v-show='$v.password.$error')
-      | Password is required
+      | {{ $t('login.passwordRequired') }}
     button.input.signup-button(type='submit')
-      | Log In
+      | {{ $t('login.login') }}
     .login-container
       router-link.input.login-button(to='signup')
-        | Sign Up
+        | {{ $t('login.signup') }}
 </template>
 
 <script>
