@@ -1,21 +1,21 @@
 <template lang='pug'>
   form.column.container(@submit.prevent='submit')
-    img.wolox-img(src='@/assets/LogoWolox.png')
+    img.wolox-img(src='@/assets/LogoWolox.png' alt='Wolox logo')
     span.books-title
       | BOOKS
     label.label(for='email')
       | Email
     input#email.input(type='email' v-model='$v.email.$model')
-    .error(v-show='$v.email.$error')
+    span.error(v-show='$v.email.$error')
       | Email is required
     label.label(for='password')
       | Password
     input#password.input(type='password' v-model='$v.password.$model')
-    .error(v-show='$v.password.$error')
+    span.error(v-show='$v.password.$error')
       | Password is required
     button.input.signup-button(type='submit')
       | Log In
-    .login-container
+    span.login-container
       router-link.input.login-button(:to='{ name: routes.signup }')
         | Sign Up
 </template>
