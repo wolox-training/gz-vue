@@ -2,7 +2,7 @@
   .main-container
     navbar
     .book-container.row
-      img.book-img(:src='book.image_url' alt='Book image')
+      img.book-img(:src='book.image_url' alt='Book cover image')
       .book-data.column
         .book-title
           h1.title
@@ -10,25 +10,25 @@
           span.genre
             | ({{ book.genre }})
         .book-property
-          h2.property-name
+          span.property-name
             | Book author:
-          h3.property-value
+          span.property-value
             | {{ book.author }}
         .book-property
-          h2.property-name
+          span.property-name
             | Publisher:
-          h3.property-value
+          span.property-value
             | {{ book.publisher }}
         .book-property
-          h2.property-name
+          span.property-name
             | Year of publication:
-          h3.property-value
+          span.property-value
             | {{ book.year }}
-
 </template>
 
 <script>
 import Navbar from '../components/NavBar'
+
 import { getBook } from '@/services/booksService'
 
 export default {
@@ -52,7 +52,7 @@ export default {
 @import '../scss/variables/colors';
 
 .book-container {
-  box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 10px 0 $black80;
   margin: 40px auto;
   width: 70%;
 

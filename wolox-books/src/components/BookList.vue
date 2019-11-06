@@ -1,6 +1,6 @@
 <template lang='pug'>
   .books-container.row
-    router-link.book.column(v-for='book in books' :key='book.id' :to='`/books/${book.id}`')
+    router-link.book.column(v-for='book in books' :key='book.id' :to='{ name: routes.detail, params: { id: book.id }}')
       img.book-img(:src='book.image_url' :alt='book.title')
       h2.book-title
         | {{ book.title }}
