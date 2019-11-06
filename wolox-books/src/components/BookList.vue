@@ -1,7 +1,7 @@
 <template lang='pug'>
   .books-container.row
     .book.column(v-for='book in books' :key='book.id')
-      img.book-img(:src='book.image_url' :alt='book.title')
+      img.book-img(:src='book.image_url' alt='Book cover image')
       h2.book-title
         | {{ book.title }}
       h3.book-author
@@ -31,20 +31,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../scss/variables/colors';
 
 .books-container {
   flex-wrap: wrap;
-  margin: 40px auto;
   justify-content: center;
+  margin: 40px auto;
   width: 80%;
 
   .book {
-    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 10px 0 $black80;
     margin: 10px;
     width: 240px;
 
     .book-author {
-      color: #000;
+      color: $black;
       padding: 5px 0 10px 25px;
     }
 
@@ -54,7 +55,7 @@ export default {
     }
 
     .book-title {
-      color: #000;
+      color: $black;
       font-weight: bold;
       padding: 5px 0 0 25px;
     }

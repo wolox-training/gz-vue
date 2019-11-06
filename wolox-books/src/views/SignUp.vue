@@ -12,14 +12,14 @@
     label.label(for='email')
       | Email
     input#email.input(type='email' v-model='$v.email.$model')
-    span.error(v-if='$v.email.$error')
+    span.error(v-show='$v.email.$error')
       | Email is required
     span.error(v-show='invalidEmail')
       | Email is invalid
     label.label(for='password')
       | Password
     input#password.input(type='password' v-model='$v.password.$model')
-    span.error(v-if='$v.password.$error')
+    span.error(v-show='$v.password.$error')
       | Password is required
     span.error(v-show='invalidPassword')
       | Password is invalid
