@@ -9,19 +9,16 @@ export default new Vuex.Store({
     books: []
   },
   mutations: {
-    setBooks (state, { books }) {
+    setBooks (state, books) {
       state.books = books
     }
   },
   actions: {
-    async getBooks (context) {
+    async getBooks ({ commit }) {
       const response = await getBooks()
       if (response.ok) {
-        context.commit('setBooks', { books: response.data })
+        commit('setBooks', response.data)
       }
     }
-  },
-  getters: {
-    books: state => state.books
   }
 })

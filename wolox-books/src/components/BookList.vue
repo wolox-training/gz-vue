@@ -9,24 +9,24 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import NavBar from '@/components/NavBar'
 
 export default {
   components: {
     NavBar
   },
-  methods: {
-    ...mapActions([
-      'getBooks'
-    ])
+  computed: {
+    ...mapState({
+      books: state => state.books
+    })
   },
   async mounted () {
     this.getBooks()
   },
-  computed: {
-    ...mapGetters([
-      'books'
+  methods: {
+    ...mapActions([
+      'getBooks'
     ])
   }
 }
