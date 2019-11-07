@@ -51,51 +51,52 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables/colors';
 
-.book-container {
-  box-shadow: 4px 4px 10px 0 $black80;
-  margin: 40px auto;
-  width: 70%;
+.main-container {
+  .book-container {
+    box-shadow: 4px 4px 10px 0 $black80;
+    margin: 40px auto;
+    width: 1366px;
 
-  .book-data {
-    margin: 20px;
-    width: 80%;
+    .book-data {
+      margin: 20px;
+      width: 75%;
 
-    .book-title {
-      border-bottom: 4px solid $earls_green;
-      padding: 8px 0;
-      width: 100%;
+      .book-title {
+        border-bottom: 4px solid $earls_green;
+        padding: 8px 0;
 
-      .genre {
-        font-size: 16px;
-        text-indent: 5px;
+        .genre {
+          font-size: 16px;
+          text-indent: 5px;
+        }
+
+        .title {
+          color: $black;
+          font-size: 16px;
+          font-weight: bold;
+        }
       }
 
-      .title {
-        color: $black;
-        font-size: 16px;
-        font-weight: bold;
+      .book-property {
+        margin: 10px 0;
+
+        .property-name {
+          color: $black;
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        .property-value {
+          font-size: 14px;
+          text-indent: 5px;
+        }
       }
     }
 
-    .book-property {
-      margin: 10px 0;
-
-      .property-name {
-        color: $black;
-        font-size: 14px;
-        font-weight: bold;
-      }
-
-      .property-value {
-        font-size: 14px;
-        text-indent: 5px;
-      }
+    .book-img {
+      padding: 20px;
+      width: 250px;
     }
-  }
-
-  .book-img {
-    padding: 20px;
-    width: 250px;
   }
 }
 </style>
