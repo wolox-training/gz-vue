@@ -11,11 +11,13 @@
 <script>
 import { mapActions, mapState } from 'vuex'
 import NavBar from '@/components/NavBar'
+import { routes } from '../router'
 
 export default {
   data () {
     return {
-      book: ''
+      book: '',
+      routes
     }
   },
   components: {

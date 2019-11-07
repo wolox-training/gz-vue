@@ -26,7 +26,7 @@
     button.input.signup-button(type='submit')
       | Sign Up
     .login-container
-      router-link.input.login-button(:to={ name: 'login' })
+      router-link.input.login-button(:to='{ name: routes.login }')
         | Login
 </template>
 
@@ -34,6 +34,7 @@
 import { required, email } from 'vuelidate/lib/validators'
 import { passwordValidation } from '../utils/validators'
 import { signUp } from '../services/userService'
+import { routes } from '../router'
 
 export default {
   name: 'SignUp',
@@ -44,7 +45,8 @@ export default {
       email: '',
       password: '',
       locale: 'en',
-      errors: false
+      errors: false,
+      routes
     }
   },
   methods: {
